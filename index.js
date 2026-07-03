@@ -4,12 +4,17 @@ require('dotenv').config();
 // Import the Express and Mongoose framework
 const express = require('express');
 const mongoose = require('mongoose');
+const flightRoutes = require('./routes/flights');
+
 
 // Create an instance of an Express application
 const app = express();
 
 // Middleware: allows the server to understand JSON in request bodies
 app.use(express.json());
+
+// Use the flight routes for any requests to /flights
+app.use('/api/flights', flightRoutes);
 
 // Connect to MongoDB Atlas using the connection string from .env
 mongoose.connect(process.env.MONGO_URI, {
