@@ -5,6 +5,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const flightRoutes = require('./routes/flights');
+const bookingRoutes = require('./routes/bookings');
 
 
 // Create an instance of an Express application
@@ -15,6 +16,9 @@ app.use(express.json());
 
 // Use the flight routes for any requests to /flights
 app.use('/api/flights', flightRoutes);
+
+// Use the booking routes for any requests to /bookings
+app.use('/api/bookings', bookingRoutes);
 
 // Connect to MongoDB Atlas using the connection string from .env
 mongoose.connect(process.env.MONGO_URI, {
