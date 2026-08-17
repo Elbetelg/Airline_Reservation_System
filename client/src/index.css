@@ -1,0 +1,32 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+/* Design tokens — change these values and the whole site updates */
+:root {
+  --bg: #F4F2EF;
+  --surface: #FFFFFF;
+  --text: #1F1E1C;
+  --text-muted: #6B6862;
+  --accent: #D4A24E;
+  --accent-dark: #B0812F;
+  --border: #E4E1DB;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  margin: 0;
+}

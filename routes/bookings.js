@@ -5,7 +5,7 @@ const Booking = require('../models/booking');
 // GET all bookings
 router.get('/', async (req, res) => {
     try {
-        const bookings = await Booking.find();
+        const bookings = await Booking.find().populate('flightId');
         res.json(bookings);
     } catch (err) {
         res.status(500).json({ message: err.message });
