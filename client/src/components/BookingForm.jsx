@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import SeatPicker from './SeatPicker'
 
 function BookingForm() {
   const [flights, setFlights] = useState([])       // for the dropdown
@@ -19,7 +20,7 @@ function BookingForm() {
   }, [])
 
    const [tripType, setTripType] = useState('oneway')
-   
+
   // Updates formData whenever any input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -64,8 +65,11 @@ function BookingForm() {
         <input name="passengerName" placeholder="Full name" value={formData.passengerName} onChange={handleChange} required />
         <input name="passengerEmail" type="email" placeholder="Email" value={formData.passengerEmail} onChange={handleChange} required />
         <input name="passengerPhone" placeholder="Phone" value={formData.passengerPhone} onChange={handleChange} required />
-        <input name="seatNumber" placeholder="Seat number" value={formData.seatNumber} onChange={handleChange} required />
-
+        <SeatPicker
+          flightId={formData.flightId}
+          selectedSeat={formData.seatNumber}
+          onSelect={(seat) => setFormData({ ...formData, seatNumber: seat })}
+        />
         <button type="submit">Book Now</button>
       </form>
 
