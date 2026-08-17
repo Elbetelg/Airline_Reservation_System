@@ -18,14 +18,16 @@ function BookingList() {
     }
 
     return (
-        <div>
+        <div className="booking-grid">
             <h2>My Bookings</h2>
             {bookings.map(booking => (
-                <div key={booking._id}>
-                    <p>Flight: {booking.flightId.flightNumber}</p>
-                    <p>Passenger: {booking.passengerName} | Email: {booking.passengerEmail} | Phone: {booking.passengerPhone}</p>
-                    <p>Seat: {booking.seatNumber} | BookingDate: {new Date(booking.bookingDate).toLocaleDateString()}</p>
-                    <button onClick={() => handleDelete(booking._id)}>Delete</button>
+                <div className="booking-card" key={booking._id}>
+                   <div>
+                     <p><strong>{booking.flightId?.flightNumber}</strong> — {booking.flightId?.origin} to {booking.flightId?.destination}</p>
+                     <p>{booking.passengerName} · {booking.passengerEmail} · {booking.passengerPhone}</p>
+                     <p>Seat {booking.seatNumber} · Booked {new Date(booking.bookingDate).toLocaleDateString()}</p>
+                   </div>
+                   <button onClick={() => handleDelete(booking._id)}>Delete</button>
                 </div>
             ))}
         </div>

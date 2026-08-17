@@ -2,7 +2,8 @@ import BookingForm from '../components/BookingForm'
 
 function Book() {
   return (
-    <div>
+    <div className="page">
+      {/* <h1>Book a Flight</h1> */}
       <BookingForm />
     </div>
   )

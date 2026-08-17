@@ -18,6 +18,8 @@ function BookingForm() {
       .then(data => setFlights(data))
   }, [])
 
+   const [tripType, setTripType] = useState('oneway')
+   
   // Updates formData whenever any input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -44,6 +46,11 @@ function BookingForm() {
   return (
     <div>
       <h2>Book a Flight</h2>
+        <div className="trip-toggle">
+          <button type="button" className={tripType === 'return' ? 'active' : ''} onClick={() => setTripType('return')}>Return</button>
+          <button type="button" className={tripType === 'oneway' ? 'active' : ''} onClick={() => setTripType('oneway')}>One way</button>
+          <button type="button" className={tripType === 'multicity' ? 'active' : ''} onClick={() => setTripType('multicity')}>Multi-city</button>
+        </div>
       <form onSubmit={handleSubmit}>
         <select name="flightId" value={formData.flightId} onChange={handleChange} required>
           <option value="">Select a flight</option>
