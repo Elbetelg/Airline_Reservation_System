@@ -6,7 +6,7 @@ function FlightList() {
   const [sortBy, setSortBy] = useState('default')
 
   useEffect(() => {
-    fetch('/api/flights')
+    fetch(`${import.meta.env.VITE_API_URL}/api/flights`)
       .then(res => res.json())
       .then(data => setFlights(data))
   }, [])

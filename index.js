@@ -3,13 +3,16 @@ require('dotenv').config();
 
 // Import the Express and Mongoose framework
 const express = require('express');
-const mongoose = require('mongoose');
+const mongoose = require('mongoose');   
+const cors = require('cors')
 const flightRoutes = require('./routes/flights');
 const bookingRoutes = require('./routes/bookings');
 
 
 // Create an instance of an Express application
 const app = express();
+
+app.use(cors())
 
 // Middleware: allows the server to understand JSON in request bodies
 app.use(express.json());

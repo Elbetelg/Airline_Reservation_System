@@ -3,13 +3,13 @@ function BookingList() {
     const [bookings, setBookings] = useState([])
 
     useEffect(() => {
-        fetch('/api/bookings')
+       fetch(`${import.meta.env.VITE_API_URL}/api/bookings`)
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [])
 
     const handleDelete = async (id) => {
-        const res = await fetch(`/api/bookings/${id}`, { method: 'DELETE' })
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/bookings/${id}`, { method: 'DELETE' })
         if (res.ok) {
             setBookings(bookings.filter(booking => booking._id !== id))
         } else {

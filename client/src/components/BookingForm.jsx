@@ -14,7 +14,7 @@ function BookingForm() {
 
   // Fetch flights once, on mount, to populate the dropdown
   useEffect(() => {
-    fetch('/api/flights')
+    fetch(`${import.meta.env.VITE_API_URL}/api/flights`)
       .then(res => res.json())
       .then(data => setFlights(data))
   }, [])
@@ -30,7 +30,7 @@ function BookingForm() {
   const handleSubmit = async (e) => {
     e.preventDefault() // stops the page from refreshing on submit
 
-    const res = await fetch('/api/bookings', {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/bookings`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
