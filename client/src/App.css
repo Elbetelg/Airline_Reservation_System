@@ -18,6 +18,20 @@ nav a {
   transition: color 0.15s ease;
 }
 
+nav a {
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  nav {
+    gap: 20px;
+    padding: 16px 20px;
+  }
+  nav a {
+    font-size: 13px;
+  }
+}
+
 nav a:hover {
   color: var(--accent-dark);
 }
